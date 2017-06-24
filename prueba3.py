@@ -1,0 +1,6 @@
+tup = (("Uno", ("Primer valor")), ("Dos", ("Segundo valor")))
+print('Datos de la tupla: ')
+print(tup)
+dic = dict(tup)
+print('Datos del diccionario: ')
+print(list(dic.values()))
