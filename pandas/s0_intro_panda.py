@@ -32,5 +32,17 @@ row_1 = registers.loc[1]
 #row_1 = registers.iloc[1]
 
 # To convert any column data type in date, can use parse_date while read csv file,
-# passing the columns names by a list
+# passing the columns names by a list. If the column is not a date format then fails
 registers_2 = pd.read_csv("acrftreg.csv", parse_dates=['regopCommdate', 'Datefirstreg'])
+
+# Get number of columns an rows
+col_rows_number = registers.shape
+
+# Number of rows can be getted with size too
+#rows_number = register.size
+
+# Info of total rows in each column with total number and total of non-null objects
+register_info = register.info()
+
+# To get total memory usage with info function, can use the parammeter memory_usage="deep"
+register_info = register.info(memory_usage="deep")
