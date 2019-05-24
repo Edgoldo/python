@@ -24,3 +24,13 @@ print("Type of element: ", type(column_2))
 
 # Get all datatypes of each column in file
 data_types = registers.dtypes
+
+# Get row by number or by id, where [row, column], accept :
+row_1 = registers.loc[1]
+
+# Similar to last command. Get row by number or by id, where [row, column], accept :
+#row_1 = registers.iloc[1]
+
+# To convert any column data type in date, can use parse_date while read csv file,
+# passing the columns names by a list
+registers_2 = pd.read_csv("acrftreg.csv", parse_dates=['regopCommdate', 'Datefirstreg'])
