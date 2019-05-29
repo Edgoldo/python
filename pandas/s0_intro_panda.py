@@ -38,11 +38,50 @@ registers_2 = pd.read_csv("acrftreg.csv", parse_dates=['regopCommdate', 'Datefir
 # Get number of columns an rows
 col_rows_number = registers.shape
 
-# Number of rows can be getted with size too
-#rows_number = register.size
+# Another way to get number of rows
+rows_number = len(registers)
+
+# Number of rows times number of columns can be getted with size. Is total of cells in file
+cells_number = register.size
 
 # Info of total rows in each column with total number and total of non-null objects
 register_info = register.info()
 
 # To get total memory usage with info function, can use the parammeter memory_usage="deep"
 register_info = register.info(memory_usage="deep")
+
+# Setting index by specific column. Set column 0 index
+registers_3 = pd.read_csv("acrftreg.csv", index_col=0)
+
+# Get index (Index object)
+registers_3_index = registers_3.index
+
+# Access to element by index position
+print("Fift element of register_3_index: ", registers_3_index[5])
+
+# Access to element by slice index of numbers
+print("Elements from index 3 to 10: ", registers_3_index[3:10])
+
+# Access to element by slice index of numbers position
+print("Elements by index 4, 10 and -2: ", registers_3_index[[4, 10, -2]])
+
+# Get columns (Index object)
+registers_3_columns = registers_3.columns
+
+# Get values (Array object)
+registers_3_values = registers_3.values
+
+# Access to values by column name
+col_model = registers_3['Model']
+
+# To set an index to DataFrame of data in a new variable
+registers_4 = registers_3.set_index('Model')
+
+# Get options of pd module. Number of maximum columns to show
+pd.get_option('display.max_columns')
+
+# Set options of pd module. Change number of maximum columns
+pd.set_option('display.max_columns', 10)
+
+# Restart one or all options of pd module
+pd.reset_option('all')
