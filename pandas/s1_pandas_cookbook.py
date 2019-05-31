@@ -38,12 +38,12 @@ engnum.isnull()
 
 # To replace all misssing values in a Series
 suspenddate = registers.suspenddate
-suspendate.count() # 17
-suspendate.fillna('01 January 1000')
-suspendate.count() # 15618
+suspenddate.count() # 17
+suspenddate.fillna('01 January 1000')
+suspenddate.count() # 15618
 
 # To remove all missing values
-suspendate.dropna()
+suspenddate.dropna()
 
 # To check if Series has missing (nan) values
 suspenddate.hasnans
@@ -121,10 +121,11 @@ registers_2['Status'] = 0
 registers_2 = registers_2.drop('Status', axis='columns')
 
 # Alternatively
-del registers_2['Status']
+#del registers_2['Status']
 
 # Get index of a element in a Series
 registers.columns.get_loc('suspenddate')
 
 # Insert column in indicated index
 registers.insert(42, column="suspendmotive", value="Wether")
+

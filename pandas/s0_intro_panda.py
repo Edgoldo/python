@@ -26,10 +26,11 @@ print("Type of element: ", type(column_2))
 data_types = registers.dtypes
 
 # Get row by id, where [row, column], accept :
-row_1 = registers.loc['AAA']
+registers_2 = registers.set_index('Mark')
+row_1 = registers_2.loc['AAA']
 
 # Get row by number where [row, column], accept :
-#row_1 = registers.iloc[1]
+row_1 = registers_2.iloc[0]
 
 # To convert any column data type in date, can use parse_date while read csv file,
 # passing the columns names by a list. If the column is not a date format then fails
@@ -42,13 +43,13 @@ col_rows_number = registers.shape
 rows_number = len(registers)
 
 # Number of rows times number of columns can be getted with size. Is total of cells in file
-cells_number = register.size
+cells_number = registers.size
 
 # Info of total rows in each column with total number and total of non-null objects
-register_info = register.info()
+register_info = registers.info()
 
 # To get total memory usage with info function, can use the parammeter memory_usage="deep"
-register_info = register.info(memory_usage="deep")
+register_info = registers.info(memory_usage="deep")
 
 # Setting index by specific column. Set column 0 index
 registers_3 = pd.read_csv("acrftreg.csv", index_col=0)
@@ -84,7 +85,7 @@ pd.get_option('display.max_columns')
 pd.set_option('display.max_columns', 10)
 
 # Restart one or all options of pd module
-pd.reset_option('all')
+pd.reset_option('display.max_columns')
 
 # Selecting a list of columns from DataFrame. The order of columns is no matters
 columns_list = ['Mark', 'Type']
@@ -134,7 +135,7 @@ data_result = registers_3.iloc[data_rows, data_cols]
 data_result = registers_3.iloc[3:15, 10:14]
 
 # Can get data distanced by n spaces
-data_result = registers_3.loc[1:100:4]
+data_result = registers_3.iloc[1:100:4]
 
 # A way to filter data is using a Series of boolean values
 engnum = registers_3['engnum'] # Series of numbers (int64), with a total of 15618 elements
