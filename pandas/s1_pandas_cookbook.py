@@ -123,7 +123,7 @@ registers_2 = registers_2.drop('Status', axis='columns')
 # Alternatively
 del registers_2['Status']
 
-# Get index of column
+# Get index of a element in a Series
 registers.columns.get_loc('suspenddate')
 
 # Insert column in indicated index
