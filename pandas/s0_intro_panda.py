@@ -25,10 +25,10 @@ print("Type of element: ", type(column_2))
 # Get all datatypes of each column in file
 data_types = registers.dtypes
 
-# Get row by number or by id, where [row, column], accept :
-row_1 = registers.loc[1]
+# Get row by id, where [row, column], accept :
+row_1 = registers.loc['AAA']
 
-# Similar to last command. Get row by number or by id, where [row, column], accept :
+# Get row by number where [row, column], accept :
 #row_1 = registers.iloc[1]
 
 # To convert any column data type in date, can use parse_date while read csv file,
@@ -85,3 +85,60 @@ pd.set_option('display.max_columns', 10)
 
 # Restart one or all options of pd module
 pd.reset_option('all')
+
+# Selecting a list of columns from DataFrame. The order of columns is no matters
+columns_list = ['Mark', 'Type']
+registers[columns_list]
+
+# Getting rows and columns with loc
+"""
+	registers_3.index
+	Index(['AAA', 'AAB', 'AAD', 'AAE', 'AAF', 'AAG', 'AAH', 'AAI', 'AAJ', 'AAK',
+           ...
+           'ZZQ', 'ZZR', 'ZZS', 'ZZT', 'ZZU', 'ZZV', 'ZZW', 'ZZX', 'ZZY', 'ZZZ'],
+           dtype='object', name='Mark', length=15618)
+
+    registers_3.columns
+    Index(['Manu', 'Type', 'Model', 'Serial', 'MTOW', 'engnum', 'Engmanu',
+       'Engtype', 'Engmodel', 'Fueltype', 'regType', 'regholdname',
+       'regholdadd1', 'regholdadd2', 'regholdSuburb', 'regholdState',
+       'regholdPostcode', 'regholdCountry', 'regholdCommdate', 'regopName',
+       'regopadd1', 'regopadd2', 'regopSuburb', 'regopState', 'regopPostcode',
+       'regopCountry', 'regopCommdate', 'Datefirstreg', 'gear', 'Airframe',
+       'CoAcata', 'CoAcatb', 'CoAcatc', 'Propmanu', 'Propmodel', 'Typecert',
+       'Countrymanu', 'Yearmanu', 'Regexpirydate', 'suspendstatus',
+       'suspenddate', 'ICAOtypedesig', 'IDERA_Authorised_Party',
+       'IDERA_Certified_Designee'],
+      dtype='object')
+"""
+data_rows = ['AAA', 'BBB', 'CCC']
+data_cols = ['Type', 'Model', 'Airframe']
+# Can use one or more elements in data_rows or data_cols lists
+data_result = registers_3.loc[data_rows, data_cols]
+
+# Can specific rows slice or column slice. To select all of that, can use :
+data_result = registers_3.loc['AAA':'AAZ', 'Manu':'Model']
+
+# Can get data distanced by n spaces
+data_result = registers_3.loc['AAA':'AAZ':4]
+
+# Gettings data with iloc
+data_rows = [0, 2, 3, 4, 5]
+data_cols = [2, 3, -4, 7, 10, -11]
+
+# Can use one or more elements in data_rows or data_cols lists
+data_result = registers_3.iloc[data_rows, data_cols]
+
+# Can specific rows slice or column slice. To select all of that, can use : 
+# In this case not include the last element indicated
+data_result = registers_3.iloc[3:15, 10:14]
+
+# Can get data distanced by n spaces
+data_result = registers_3.loc[1:100:4]
+
+# A way to filter data is using a Series of boolean values
+engnum = registers_3['engnum'] # Series of numbers (int64), with a total of 15618 elements
+# Geting a Series of booleans where value is True if engnum in that position is greater than 1
+index_gte_1 = engnum > 1
+# Filtering data of values greater than 1
+data_result = engnum[index_gte_1]
