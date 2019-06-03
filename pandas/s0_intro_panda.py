@@ -143,3 +143,19 @@ engnum = registers_3['engnum'] # Series of numbers (int64), with a total of 1561
 index_gte_1 = engnum > 1
 # Filtering data of values greater than 1
 data_result = engnum[index_gte_1]
+# And can get the registers of DataFrame (with no index) that accomplish with condition (engnum > 1)
+reg_result = registers[index_gte_1]
+
+"""
+  We can use logical operators and (&), or (|), not (~) or isin to create a filter 
+  (Series of boolean values) and get indexing with multiple conditions
+"""
+manu_restriction = registers.Manu == 'AMATEUR BUILT AIRCRAFT'
+regopcountry_restriction = registers.regopCountry != 'Australia'
+reg_result = registers[manu_restriction & regopcountry_restriction]
+reg_result = registers[manu_restriction | regopcountry_restriction]
+reg_result = registers[manu_restriction & ~regopcountry_restriction]
+
+# Use of isin method wit a list of restrictions to check equality
+registers[registers.regopCountry.isin(["Hong Kong", "People\'s Republic of China", "New Zealand"])]
+
