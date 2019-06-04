@@ -27,3 +27,11 @@ Python Data Analysis Library (Panda)
 ---------------------------------------------
 
     https://www.youtube.com/playlist?list=PLVyhfExBT1XAmJNtsVi96c8LlQgEwy0n1
+
+4) Para usar jupyter notebook, es necesario instalarlo:
+
+    (python) $ pip install jupyter
+
+    Luego para abrir una nueva libreta en el explorador, ejecutar
+
+    (python) $ jupyter notebook
