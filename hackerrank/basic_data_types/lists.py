@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-if __name__ == '__main__':
-	N = int(raw_input())
-	commands = ['insert', 'print', 'remove', 'append', 'sort', 'pop', 'reverse']
-	for val in range(0, N):
-		my_list.append()
-=======
 """
 Evalue N differents functions on a list previously initialized. 
 The input is the N value and each of functions names to apply in 
@@ -41,4 +34,3 @@ if __name__ == '__main__':
     		mi_list.pop()
     	elif command == opt[6]:
     		mi_list.reverse()
->>>>>>> 68d804a33c6393f23ac6ee5638ec4fcb25ed09b1
