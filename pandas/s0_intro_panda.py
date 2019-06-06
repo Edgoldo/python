@@ -159,3 +159,32 @@ reg_result = registers[manu_restriction & ~regopcountry_restriction]
 # Use of isin method wit a list of restrictions to check equality
 registers[registers.regopCountry.isin(["Hong Kong", "People\'s Republic of China", "New Zealand"])]
 
+# Use of between method to filter by a range of values
+filt_range = engnum.between(0.1, 1.9)
+reg_result = engnum[filt_range]
+
+# Can combine filter with columns selection
+data_cols = ['engnum', 'Type', 'Model']
+reg_result = registers.loc[filt, data_cols]
+
+# Get missing values with isna
+filt_na = registers.suspenddate.isna()
+reg_result = registers[filt_na]
+
+# Another way to make queries
+reg_result = registers.query('engnum > 1')
+reg_result = registers.query("engnum > 1 and not Countrymanu == 'Australia'")
+
+# Using variables in a query
+q_engnum = 1
+q_country = 'Australia'
+registers.query("engnum > @q_engnum and not Countrymanu == @q_country")
+
+# Use of query with lists
+q_countries = ['Hong Kong', 'New Zealand']
+registers.query("Countrymanu in @q_countries")
+
+# To get a cell value are multiple choices to do it
+cell_result = registers['Mark'][10]
+cell_result = registers.at[10, 'Mark']
+cell_result = registers.iat[10, 0]
