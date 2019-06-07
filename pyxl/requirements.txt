@@ -1,0 +1,8 @@
+## Módulo para trabajar con archivos .xlsx
+openpyxl==2.4
+
+## Módulo para tratar strings, usada para quitar acentos a las palabras
+unicode==0.4
+
+## Módulo para ordenar diccionarios
+## collections

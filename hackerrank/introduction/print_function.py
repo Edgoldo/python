@@ -1,3 +1,8 @@
+"""
+Print a sequence of n numbers in a row.
+The input is the n value.
+The output is the row of n numbers.
+"""
 from __future__ import print_function
 if __name__ == '__main__':
     # Number input
