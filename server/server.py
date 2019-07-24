@@ -1,5 +1,11 @@
 """
-Stablish a web server using HTTPServer and BaseHTTPRequestHandler classes.
+Web Server
+
+Establish a web server using http package that contains HTTPServer and 
+BaseHTTPRequestHandler classes. To install http is need to input the 
+next command:
+    $ pip install http
+
 Manage get requests and make the server locally in code-specified port.
 """
 from http.server import HTTPServer, BaseHTTPRequestHandler
