@@ -1,3 +1,9 @@
+"""
+Chat console
+
+Run a server in a terminal where multiple clients can connect each
+other and send text
+"""
 import socket
 import threading
 import sys
