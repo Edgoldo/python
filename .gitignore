@@ -5,3 +5,4 @@ python_files
 settings.py
 intermediate/scraping/data
 intermediate/scraping/html
+Pipfile.lock
