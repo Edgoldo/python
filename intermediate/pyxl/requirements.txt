@@ -1,5 +1,5 @@
 ## Módulo para trabajar con archivos .xlsx
-openpyxl==2.4
+openpyxl==2.4.2
 
 ## Módulo para tratar strings, usada para quitar acentos a las palabras
 unicode==0.4
